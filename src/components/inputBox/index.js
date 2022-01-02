@@ -11,6 +11,9 @@ export function Input(props) {
     errors,
     otherStyle,
     keyboardType,
+    onBlur,
+    onChangeText,
+    value,
     ...rest
   } = props;
 
@@ -19,7 +22,9 @@ export function Input(props) {
       <TextInput
         placeholder={placeholder}
         keyboardType={keyboardType}
-
+        onBlur={onBlur}
+        onChangeText={onChangeText}
+        value={value}
         style={[
           InputTextStyle.inputText,
           { ...otherStyle },

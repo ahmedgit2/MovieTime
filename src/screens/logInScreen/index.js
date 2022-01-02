@@ -29,9 +29,9 @@ export function LoginScreen() {
                         name='username'
                         control={control}
                         placeholder={'Email, phone, number, username'}
-                        rules={{ required: (true, 'UserName Is Required') },
-                    
-                    }
+                        rules={{ required: (true, 'UserName Is Required') }
+
+                        }
                         errors={errors.name ? errors.name.message : null}
                     />
                     <InputController

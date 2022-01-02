@@ -8,23 +8,29 @@ export const Styles = StyleSheet.create({
 
     ScreenContainer: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
+
     HeaderContainer: {
-        marginVertical: 90
+        // marginTop: '30%',
+        flex: 2,
+        justifyContent: 'center'
 
     },
+    InputContainer: {
+        alignItems: 'center',
+        flex: 3
+
+    },
+
     FooterContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
         marginBottom: 30,
-        alignItems: 'flex-end'
+        flexDirection: 'row',
+        alignItems: 'stretch',
+        justifyContent: 'center',
+        flex: .4
     },
-
     Button: {
-        marginTop: 25,
+        marginTop: 40,
         backgroundColor: Colors.main,
         width: width * .80,
         height: 47,
@@ -42,7 +48,7 @@ export const Styles = StyleSheet.create({
     },
 
     BigText: {
-        fontSize: 25,
+        fontSize: 26,
         color: Colors.black,
         textAlign: 'center',
         marginBottom: 7,
@@ -51,22 +57,21 @@ export const Styles = StyleSheet.create({
 
     },
     SubText: {
-        fontSize: 13,
+        fontSize: 14,
         color: Colors.middle,
         textAlign: 'center',
         fontFamily: 'roboto_regular'
     },
     ForgetPasswordText: {
-        fontSize: 13,
+        fontSize: 14,
         color: Colors.secondary,
         alignSelf: 'flex-start',
         textAlign: 'left',
-        marginBottom: 5,
-        marginBottom: 5,
-        fontFamily: 'roboto_medium'
+        fontFamily: 'roboto_medium',
+        paddingLeft: 20
     },
     SignUpText: {
-        fontSize: 14,
+        fontSize: 15,
         color: Colors.black,
         textAlign: 'center',
         fontFamily: 'roboto_regular',
@@ -74,10 +79,10 @@ export const Styles = StyleSheet.create({
 
     },
     ClickSignUpText: {
-        fontSize: 14,
+        fontSize: 15,
         color: Colors.secondary,
         textAlign: 'center',
-        fontFamily: 'roboto_medium',
+        fontFamily: 'roboto_regular',
         paddingVertical: 8,
     },
 });

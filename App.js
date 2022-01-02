@@ -7,7 +7,7 @@ import { LoginScreen } from './src/screens/logInScreen';
 const App = () => {
   return (
 
-    <SplashScreen />
+    <LoginScreen />
 
   );
 };

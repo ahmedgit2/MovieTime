@@ -8,11 +8,13 @@ export const InputTextStyle = StyleSheet.create({
 
     inputText: {
         backgroundColor: Colors.light,
-        height: 44,
+        height: 46,
         width: width * .80,
         borderRadius: 8,
         paddingLeft: 20,
-        marginBottom: height * .041,
+        marginBottom: height * .038,
+        fontFamily: 'roboto_regular',
+        fontSize: 14,
     },
 
     errorMessage: {
