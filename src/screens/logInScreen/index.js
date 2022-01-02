@@ -1,20 +1,19 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 
-import { Input } from "../../components/inputBox";
+import { useForm } from "react-hook-form";
+import { InputController } from "../../components/inputController"
 import { Styles } from './styles'
 
-const { height, width } = Dimensions.get('window');
 
 export function LoginScreen() {
 
-    console.log(height * 0.066);
+    const { getValues, control, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onBlur' });
 
     return (
+        <ScrollView contentContainerStyle={{ flex: 1 }} showsVerticalScrollIndicator={false} >
+            <SafeAreaView style={{ flex: 1 }}>
 
-
-        <SafeAreaView style={Styles.ScreenContainer}>
-            <ScrollView contentContainerStyle={{ flex: 1, }} showsVerticalScrollIndicator={false}>
 
                 <View style={Styles.HeaderContainer} >
                     <Text style={Styles.BigText}>
@@ -25,9 +24,23 @@ export function LoginScreen() {
                     </Text>
                 </View>
 
-                <View >
-                    <Input placeholder={'Email, phone, number, username'} />
-                    <Input placeholder={'Password'} />
+                <View style={Styles.InputContainer} >
+                    <InputController
+                        name='username'
+                        control={control}
+                        placeholder={'Email, phone, number, username'}
+                        rules={{ required: (true, 'UserName Is Required') },
+                    
+                    }
+                        errors={errors.name ? errors.name.message : null}
+                    />
+                    <InputController
+                        name='password'
+                        control={control}
+                        placeholder={'Password'}
+                        rules={{ required: (true, 'Password Is Required') }}
+                        errors={errors.name ? errors.name.message : null}
+                    />
 
                     <TouchableOpacity activeOpacity={0.7} style={Styles.ForgetPasswordText}>
                         <Text style={Styles.ForgetPasswordText} >
@@ -40,11 +53,9 @@ export function LoginScreen() {
                             SIGN IN
                         </Text>
                     </TouchableOpacity>
-
                 </View>
 
-
-                <View style={Styles.FooterContainer}>
+                <View style={Styles.FooterContainer} >
                     <Text style={Styles.SignUpText}>
                         Dont have an account?
                     </Text>
@@ -56,8 +67,7 @@ export function LoginScreen() {
                     </TouchableOpacity>
                 </View>
 
-            </ScrollView>
-
-        </SafeAreaView>
+            </SafeAreaView >
+        </ScrollView>
     );
 }
