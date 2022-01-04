@@ -39,7 +39,7 @@ export const SplashScreen = () => {
             }} >
 
                 <Image
-                    source={require("../../assets/images/splash.png")} />
+                    source={require("../../assets/images/Logo.png")} />
 
             </Animated.View>
 

@@ -12,18 +12,19 @@ export const InputTextStyle = StyleSheet.create({
         width: width * .80,
         borderRadius: 8,
         paddingLeft: 20,
-        marginBottom: height * .038,
+        marginBottom: 32,
         fontFamily: 'roboto_regular',
         fontSize: 14,
+
     },
 
     errorMessage: {
-        paddingHorizontal: width * .02,
+        marginHorizontal: 8,
         fontSize: 14,
         color: Colors.main,
         textAlign: 'left',
-        paddingTop: 1,
-        paddingBottom: 7
+        marginTop: 1,
+        paddingBottom: 15
         , fontFamily: 'roboto_regular'
     },
 });

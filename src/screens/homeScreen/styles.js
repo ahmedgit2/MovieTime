@@ -9,45 +9,26 @@ export const Styles = StyleSheet.create({
 
     ScreenContainer: {
         flex: 1,
+        backgroundColor: Colors.white
     },
 
     HeaderContainer: {
-        marginTop: 30,
-        height: height * .3,
-        //flex: 2,
-        justifyContent: 'center'
+        flexDirection: 'row',
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: Colors.white
 
     },
-    InputContainer: {
+    SliderContainer: {
         marginTop: 20,
-        height: height * .5,
+        height: height * .3,
         justifyContent: 'flex-start',
         alignItems: 'center',
         //flex: 3
 
     },
 
-    FooterContainer: {
-
-        alignItems: 'stretch',
-        justifyContent: 'flex-end',
-        // flex: .4
-    },
-    Footer: {
-        marginBottom: 40,
-        flexDirection: 'row',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-    },
-    Button: {
-        marginTop: 40,
-        backgroundColor: Colors.main,
-        width: 305,
-        height: 47,
-        borderRadius: 100,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
 
 
     SignInButtonText: {

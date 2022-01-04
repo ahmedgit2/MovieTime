@@ -12,8 +12,8 @@ export const Styles = StyleSheet.create({
     },
 
     HeaderContainer: {
-        marginTop: 30,
-        height: height * .3,
+        marginTop: 40,
+        height: height * .25,
         //flex: 2,
         justifyContent: 'center'
 
@@ -27,18 +27,6 @@ export const Styles = StyleSheet.create({
 
     },
 
-    FooterContainer: {
-
-        alignItems: 'stretch',
-        justifyContent: 'flex-end',
-        // flex: .4
-    },
-    Footer: {
-        marginBottom: 40,
-        flexDirection: 'row',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-    },
     Button: {
         marginTop: 40,
         backgroundColor: Colors.main,
@@ -72,28 +60,7 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'roboto_regular'
     },
-    ForgetPasswordText: {
-        fontSize: 14,
-        color: Colors.secondary,
-        alignSelf: 'flex-start',
-        textAlign: 'left',
-        fontFamily: 'roboto_medium',
-        paddingLeft: 24
-    },
-    SignUpText: {
-        fontSize: 15,
-        color: Colors.black,
-        textAlign: 'center',
-        fontFamily: 'roboto_regular',
-        padding: 8,
 
-    },
-    ClickSignUpText: {
-        fontSize: 15,
-        color: Colors.secondary,
-        textAlign: 'center',
-        fontFamily: 'roboto_regular',
-        paddingVertical: 8,
-    },
+
 });
 

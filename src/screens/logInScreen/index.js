@@ -11,8 +11,8 @@ export function LoginScreen() {
     const { getValues, control, reset, handleSubmit, formState: { errors } } = useForm({ mode: 'onBlur' });
 
     return (
-        <ScrollView contentContainerStyle={{ flex: 1 }} showsVerticalScrollIndicator={false} >
-            <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={Styles.ScreenContainer}>
+            <ScrollView showsVerticalScrollIndicator={false} >
 
 
                 <View style={Styles.HeaderContainer} >
@@ -29,17 +29,15 @@ export function LoginScreen() {
                         name='username'
                         control={control}
                         placeholder={'Email, phone, number, username'}
-                        rules={{ required: (true, 'UserName Is Required') }
-
-                        }
-                        errors={errors.name ? errors.name.message : null}
+                        rules={{ required: (true, 'UserName Is Required') }}
+                        errors={errors.username ? errors.username.message : null}
                     />
                     <InputController
                         name='password'
                         control={control}
                         placeholder={'Password'}
                         rules={{ required: (true, 'Password Is Required') }}
-                        errors={errors.name ? errors.name.message : null}
+                        errors={errors.password ? errors.password.message : null}
                     />
 
                     <TouchableOpacity activeOpacity={0.7} style={Styles.ForgetPasswordText}>
@@ -55,19 +53,21 @@ export function LoginScreen() {
                     </TouchableOpacity>
                 </View>
 
-                <View style={Styles.FooterContainer} >
-                    <Text style={Styles.SignUpText}>
-                        Dont have an account?
-                    </Text>
-
-                    <TouchableOpacity activeOpacity={0.7}>
-                        <Text style={Styles.ClickSignUpText} >
-                            SIGN UP
+                <View style={Styles.FooterContainer}>
+                    <View style={Styles.Footer} >
+                        <Text style={Styles.SignUpText}>
+                            Dont have an account?
                         </Text>
-                    </TouchableOpacity>
+
+                        <TouchableOpacity activeOpacity={0.7}>
+                            <Text style={Styles.ClickSignUpText} >
+                                SIGN UP
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
-            </SafeAreaView >
-        </ScrollView>
+            </ScrollView>
+        </SafeAreaView >
     );
 }

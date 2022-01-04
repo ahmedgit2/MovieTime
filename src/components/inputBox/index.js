@@ -27,6 +27,7 @@ export function Input(props) {
         value={value}
         style={[
           InputTextStyle.inputText,
+          errors && { marginBottom: 5 },
           { ...otherStyle },
           errors && { borderWidth: 1, borderColor: Colors.main }]}
         {...rest}
