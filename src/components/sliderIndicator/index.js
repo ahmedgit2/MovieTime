@@ -1,23 +1,27 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Dimensions, Animated } from 'react-native';
 
 import { styles } from './styles';
 import { Colors } from '../../assets/colors';
+const { width } = Dimensions.get('window');
 
-export function Slider({ dataArg }) {
+export function SliderIndicator({ items, scrollX }) {
+
 
   return (
 
-    <View style={styles.wrapper} showsButtons={true}>
-      <View style={styles.slide1}>
-        <Text style={styles.text}>Hello Swiper</Text>
-      </View>
-      <View style={styles.slide2}>
-        <Text style={styles.text}>Beautiful</Text>
-      </View>
-      <View style={styles.slide3}>
-        <Text style={styles.text}>And simple</Text>
-      </View>
+    <View style={ styles.Container } >
+      {
+        items.map((_, i) => {
+          const inputRange = [ (i - 1) * (width - 30), i * (width - 30), (i + 1) * (width - 30) ];
+          const dotWidth = scrollX.interpolate({
+            inputRange,
+            outputRange: [ width * 0.02, width * 0.1, width * 0.02 ],
+            extrapolate: 'clamp'
+          })
+          return <Animated.View style={ [ styles.indicator, { width: dotWidth } ] } key={ i.toString() } />
+        })
+      }
     </View>
   );
 }

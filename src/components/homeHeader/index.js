@@ -15,22 +15,22 @@ export function HomeHeader(props) {
   } = props;
 
   return (
-    <View style={Styles.HeaderContainer} >
+    <View style={ Styles.HeaderContainer } >
 
 
-      <View style={Styles.LeftIcons}>
-        <TouchableHighlight underlayColor={Colors.main}>
-          <Ionicons name={'menu-sharp'} size={35} color={Colors.black} />
+      <View style={ Styles.LeftIcons }>
+        <TouchableHighlight underlayColor={ Colors.main }>
+          <Ionicons name={ 'menu-sharp' } size={ 35 } color={ Colors.black } />
         </TouchableHighlight>
       </View>
 
-      <View style={Styles.ImageContainer}>
-        <Image source={require("../../assets/images/Logo.png")} style={Styles.Image} />
+      <View style={ Styles.ImageContainer }>
+        <Image source={ require("../../assets/images/Logo.png") } style={ Styles.Image } />
       </View>
 
-      <View style={Styles.RightIcons}>
-        <IconButton iconName={'search1'} size={28} />
-        <IconButton iconName={'user'} size={28} />
+      <View style={ Styles.RightIcons }>
+        <IconButton iconName={ 'search1' } size={ 28 } />
+        <IconButton iconName={ 'user' } size={ 28 } />
       </View>
 
 

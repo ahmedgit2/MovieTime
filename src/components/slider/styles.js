@@ -6,30 +6,18 @@ const { height, width } = Dimensions.get('window');
 
 export
     const styles = StyleSheet.create({
-        wrapper: {},
-        slide1: {
+        container: {
             flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#9DD6EB'
+            borderRadius: 10,
+            overflow: 'hidden'
         },
-        slide2: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#97CAE5'
-        },
-        slide3: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#92BBD9'
-        },
-        text: {
-            color: '#fff',
-            fontSize: 30,
-            fontWeight: 'bold'
+        Indicator: {
+            position: 'absolute',
+            alignSelf: 'center',
+            bottom: 5,
+
         }
+
     })
 
 

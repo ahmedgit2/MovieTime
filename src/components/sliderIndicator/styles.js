@@ -6,30 +6,25 @@ const { height, width } = Dimensions.get('window');
 
 export
     const styles = StyleSheet.create({
-        wrapper: {},
-        slide1: {
-            flex: 1,
+        Container: {
+            flexDirection: 'row',
+            height: height * 0.03,
+            width: width * 0.8,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#9DD6EB'
         },
-        slide2: {
-            flex: 1,
+        indicator: {
+            margin: 4,
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#97CAE5'
+            height: width * 0.02,
+            width: width * 0.02,
+            borderRadius: 50,
+            elevation: 2,
+            backgroundColor: "#ededed"
         },
-        slide3: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#92BBD9'
-        },
-        text: {
-            color: '#fff',
-            fontSize: 30,
-            fontWeight: 'bold'
-        }
+
     })
 
 
