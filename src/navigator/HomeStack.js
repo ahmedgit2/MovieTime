@@ -32,7 +32,7 @@ export function HomeStack() {
         component={ CastDetailsScreen }
         options={ {
           title: '',
-          headerShown: false
+          headerStyle: { backgroundColor: Colors.main }
         } }
       />
 

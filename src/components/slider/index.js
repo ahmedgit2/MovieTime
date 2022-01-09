@@ -10,11 +10,10 @@ import { styles } from './styles';
 const { height, width } = Dimensions.get('window');
 
 export const Slider = ({ }) => {
-
-  const [movies, setMovies] = useState({});
-  const [currentIndex, setcurrentIndex] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
-  const [intervalId, setIntervalId] = useState(null);
+  const [ movies, setMovies ] = useState({});
+  const [ currentIndex, setcurrentIndex ] = useState(0);
+  const [ autoPlay, setAutoPlay ] = useState(true);
+  const [ intervalId, setIntervalId ] = useState(null);
 
   const scrollX = useRef(new Animated.Value(0)).current;
   const slideRef = useRef(null);
@@ -24,36 +23,36 @@ export const Slider = ({ }) => {
   }).current;
 
   const viewableItemsChanged = useRef(({ viewableItems }) => {
-    setcurrentIndex(viewableItems[0].index);
+    setcurrentIndex(viewableItems[ 0 ].index);
     // console.log('scrolled to image ', viewableItems[ 0 ].index);
   }).current;
 
 
-  // useEffect(() => {
-  //   if (autoPlay) {
-  //     let toIndex = currentIndex;
-  //     if (intervalId === null) {
-  //       const id = window.setInterval(() => {
-  //         if (toIndex < items.length - 1) {
-  //           toIndex++
-  //         } else {
-  //           toIndex = 0
-  //         }
-  //         slideRef.current.scrollToIndex({ animated: true, index: toIndex })
-  //       }, 4000);
-  //       setIntervalId(id);
-  //     }
-  //   } else {
-  //     clearInterval(intervalId);
-  //     setTimeout(() => {
-  //       setAutoPlay(true);
-  //       console.log("autoPlay :" + autoPlay);
-  //     }, 2000);
-  //   }
-  //   //  console.log("autoPlay :" + autoPlay);
-  //   //console.log("intervalId :" + intervalId);
-  // }, [autoPlay])
-  //console.log(movies);
+  useEffect(() => {
+    if (autoPlay) {
+      let toIndex = currentIndex;
+      if (intervalId === null) {
+        const id = window.setInterval(() => {
+          if (toIndex < Object.keys(movies) - 1) {
+            toIndex++
+          } else {
+            toIndex = 0
+          }
+          slideRef.current.scrollToIndex({ animated: true, index: toIndex })
+        }, 4000);
+        setIntervalId(id);
+      }
+    } else {
+      clearInterval(intervalId);
+      setTimeout(() => {
+        setAutoPlay(true);
+        console.log("autoPlay :" + autoPlay);
+      }, 2000);
+    }
+    //  console.log("autoPlay :" + autoPlay);
+    //console.log("intervalId :" + intervalId);
+  }, [ autoPlay ])
+  console.log(movies);
 
 
   useEffect(() => {
@@ -65,34 +64,34 @@ export const Slider = ({ }) => {
 
 
   return (
-    <View style={styles.container} >
+    <View style={ styles.container } >
 
       <FlatList
-        data={movies}
-        keyExtractor={(x) => x.id.toString()}
-        renderItem={({ item }) => (
-          <SliderItem item={'https://image.tmdb.org/t/p/w500' + item.backdrop_path}
-            onPress={() => {
+        data={ movies }
+        keyExtractor={ (x) => x.id.toString() }
+        renderItem={ ({ item }) => (
+          <SliderItem item={ 'https://image.tmdb.org/t/p/w500' + item.backdrop_path }
+            onPress={ () => {
 
               //  navigation.navigate('MovieDetailsScreen', item)
             }
             } />
-        )}
+        ) }
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={ false }
         pagingEnabled
-        bounces={false}
-        onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }],
+        bounces={ false }
+        onScroll={ Animated.event([ { nativeEvent: { contentOffset: { x: scrollX } } } ],
           { useNativeDriver: false })
         }
-        ref={slideRef}
-        initialNumToRender={10}
-        onViewableItemsChanged={viewableItemsChanged}
-        onMomentumScrollBegin={onMomentumScrollBegin}
+        ref={ slideRef }
+        initialNumToRender={ 10 }
+        onViewableItemsChanged={ viewableItemsChanged }
+        onMomentumScrollBegin={ onMomentumScrollBegin }
       />
 
-      <View style={styles.Indicator}>
-        <SliderIndicator items={movies} scrollX={scrollX} />
+      <View style={ styles.Indicator }>
+        <SliderIndicator items={ movies } scrollX={ scrollX } />
       </View>
 
     </View>

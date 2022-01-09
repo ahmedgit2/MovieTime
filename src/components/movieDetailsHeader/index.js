@@ -11,7 +11,7 @@ import { Colors } from '../../assets/colors';
 
 export const MovieDetailsHeader = (props) => {
   const navigation = useNavigation()
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [ isFavorite, setIsFavorite ] = useState(false)
 
   const {
     img,
@@ -25,43 +25,43 @@ export const MovieDetailsHeader = (props) => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, }}>
+    <SafeAreaView style={ { flex: 1, } }>
 
-      <View style={Styles.containerStyle} >
-        <View style={Styles.sliderContainerStyle} >
+      <View style={ Styles.containerStyle } >
+        <View style={ Styles.sliderContainerStyle } >
 
           <Image
-            source={{
-              uri: img
-            }}
-            style={Styles.Image}
+            source={ {
+              uri: 'https://palsawa.com/uploads/images/2021/12/yDzfD.jpg'
+            } }
+            style={ Styles.Image }
           />
         </View>
       </View>
 
-      <View style={Styles.HeaderContainer}>
+      <View style={ Styles.HeaderContainer }>
 
-        <View style={Styles.LeftIcons}>
-          <Pressable onPress={OnPressBack}>
+        <View style={ Styles.LeftIcons }>
+          <Pressable onPress={ OnPressBack }>
             <MaterialIcons
-              name={'arrow-back-ios'}
-              size={25}
-              color={Colors.white}
-              style={{ padding: 5 }}
+              name={ 'arrow-back-ios' }
+              size={ 25 }
+              color={ Colors.white }
+              style={ { padding: 5 } }
             />
           </Pressable>
         </View>
 
 
-        <View style={Styles.RightIcons}>
+        <View style={ Styles.RightIcons }>
 
           <Pressable
-            onPress={onPressFavorite}>
+            onPress={ onPressFavorite }>
             <AntDesign
-              name={isFavorite ? 'heart' : 'hearto'}
-              size={23}
-              color={isFavorite ? Colors.main : Colors.white}
-              style={{ marginRight: 7, padding: 5 }}
+              name={ isFavorite ? 'heart' : 'hearto' }
+              size={ 23 }
+              color={ isFavorite ? Colors.main : Colors.white }
+              style={ { marginRight: 7, padding: 5 } }
             />
 
           </Pressable>
@@ -69,8 +69,8 @@ export const MovieDetailsHeader = (props) => {
 
           <Pressable >
             <Entypo
-              name={'dots-three-vertical'}
-              size={23} color={Colors.white}
+              name={ 'dots-three-vertical' }
+              size={ 23 } color={ Colors.white }
             />
           </Pressable>
 

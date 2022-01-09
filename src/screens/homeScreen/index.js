@@ -11,23 +11,23 @@ import { Styles } from './styles';
 export function HomeScreen({ navigation }) {
 
     return (
-        <SafeAreaView style={Styles.ScreenContainer}>
+        <SafeAreaView style={ Styles.ScreenContainer }>
             <ScrollView>
-                <HomeHeader OnPressMenu={() => navigation.openDrawer()} />
+                <HomeHeader OnPressMenu={ () => navigation.openDrawer() } />
 
-                <View style={Styles.SliderContainer}>
+                <View style={ Styles.SliderContainer }>
                     <Slider />
                 </View>
 
-                <ClickableText text={'MOST POPULAR MOVIES'} />
+                <ClickableText text={ 'MOST POPULAR MOVIES' } />
 
-                <View style={Styles.MostPopularContainer}>
+                <View style={ Styles.MostPopularContainer }>
                     <MostPopularMoviesList />
                 </View>
 
-                <ClickableText text={'NEW'} />
+                <ClickableText text={ 'NEW' } />
 
-                <View style={Styles.MostPopularContainer}>
+                <View style={ Styles.MostPopularContainer }>
                     <NewMovieList />
                 </View>
 

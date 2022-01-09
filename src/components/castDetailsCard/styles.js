@@ -21,7 +21,7 @@ export const Styles = StyleSheet.create({
 
     card: {
         justifyContent: 'center',
-        height: height * 0.21,
+        height: height * 0.18,
         width: width,
         paddingLeft: 20,
     },
@@ -33,7 +33,7 @@ export const Styles = StyleSheet.create({
         overflow: 'hidden',
         borderRadius: width,
         left: 15,
-        top: 26
+        top: 12
     },
 
     HorizontalText: {

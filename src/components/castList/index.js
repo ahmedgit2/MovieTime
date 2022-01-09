@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, FlatList, Animated, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 import { CastListItem } from '../castListItem';
 
 export function CastList({ items = TestData }) {
+  const navigation = useNavigation();
+
   return (
     <View style={ { flex: 1, flexDirection: 'row' } }>
       <FlatList
@@ -12,7 +15,7 @@ export function CastList({ items = TestData }) {
         renderItem={ ({ item }) => (
           <CastListItem item={ item }
             onPress={ () => {
-              // console.log(item.id)/* navigation.navigate('EmployeeDetails', item)*/
+              navigation.navigate('CastDetailsScreen', item)
             }
             } />
         ) }

@@ -10,7 +10,7 @@ import { VerticalList } from '../../components/verticalList';
 import { Styles } from './styles';
 
 
-export const CastDetailsScreen = ({ item = test }) => {
+export const CastDetailsScreen = ({ item }) => {
     return (
         <SafeAreaView style={ Styles.ScreenContainer }>
             <CastDetailsCard />
