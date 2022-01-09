@@ -15,14 +15,14 @@ export const SplashScreen = () => {
             Animated.timing(fadeRef,
                 {
                     toValue: 1,
-                    duration: 500,
+                    duration: 700,
                     useNativeDriver: true
                 }),
             Animated.timing(fadeRef,
                 {
                     toValue: 0,
-                    duration: 1000,
-                    delay: 2000,
+                    duration: 700,
+                    delay: 3000,
                     useNativeDriver: true
                 }),
 
@@ -31,15 +31,15 @@ export const SplashScreen = () => {
 
     return (
 
-        <View style={Styles.Container} >
+        <View style={ Styles.Container } >
 
-            <Animated.View style={{
+            <Animated.View style={ {
                 opacity: fadeRef,
 
-            }} >
+            } } >
 
                 <Image
-                    source={require("../../assets/images/Logo.png")} />
+                    source={ require("../../assets/images/Logo.png") } />
 
             </Animated.View>
 

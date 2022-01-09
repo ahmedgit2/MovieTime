@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { AddEmployee } from '../screens/AddEmployee'
-import { EmployeeDetails } from '../screens/EmployeeDetails'
-import { HomeScreen } from '../screens/HomeScreen'
+import { CastDetailsScreen } from '../screens/castDetailsScreen'
+import { MovieDetailsScreen } from '../screens/movieDetailsScreen'
+import { HomeScreen } from '../screens/homeScreen'
 
 
-import { Colors } from '../utils/Colors';
+import { Colors } from '../assets/colors';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export function HomeStack() {
 
@@ -28,20 +28,20 @@ export function HomeStack() {
       />
 
       <Stack.Screen
-        screenOptions={ { headerShown: false } }
-        name="AddEmployee"
-        component={ AddEmployee }
+        name="CastDetailsScreen"
+        component={ CastDetailsScreen }
         options={ {
           title: '',
-          headerStyle: { backgroundColor: Colors.Main_COLOR }
+          headerShown: false
         } }
       />
+
       <Stack.Screen
-        name="EmployeeDetails"
-        component={ EmployeeDetails }
+        name="MovieDetailsScreen"
+        component={ MovieDetailsScreen }
         options={ {
           title: '',
-          headerStyle: { backgroundColor: Colors.Main_COLOR }
+          headerShown: false
         } }
       />
 

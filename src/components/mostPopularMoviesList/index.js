@@ -13,7 +13,7 @@ export function MostPopularMoviesList({ items = TestData }) {
         renderItem={ ({ item }) => (
           <MovieCard item={ item }
             onPress={ () => {
-              // console.log(item.id)/* navigation.navigate('EmployeeDetails', item)*/
+              navigation.navigate('Movie', item)
             }
             } />
         ) }

@@ -1,67 +1,97 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
-
+import { DrawerItem } from '@react-navigation/drawer';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Colors } from '../../utils/Colors';
-
-import { ListItemSeparator } from '../listItemSeparator'
-import { Roundimage } from '../roundImage'
-import { LogoutModal } from '../logOutModal'
+import Entypo from 'react-native-vector-icons/Entypo';
+import { getCurrentUserProfile, logOut } from '../../firebase/useFirebase';
+import { Colors } from '../../assets/colors';
 
 
 export function DrawerContent({ name = 'test', navigation, ...props }) {
-
-  const [ ModalVisible, setModalVisible ] = React.useState(false);
-
+  const data = getCurrentUserProfile();
   return (
 
     <View style={ { flex: 1 } } >
-      <View style={ { backgroundColor: Colors.Main_COLOR, flex: 0.5, justifyContent: 'center', alignItems: 'center' } }>
-        <Roundimage size={ 100 } />
-        <Text style={ { marginTop: 10, fontSize: 20, color: Colors.white } }>
-          { name }
+      <View style={ { backgroundColor: Colors.white, } }>
+
+        <Text style={ { fontFamily: 'roboto_medium', marginLeft: 15, marginVertical: 20, fontSize: 18, color: Colors.black } }>
+          { //data.data.displayName 
+            "name here" }
         </Text>
       </View>
 
-      <DrawerContentScrollView  { ...props }>
-        <LogoutModal
-          onBack={ () => setModalVisible(false) }
-          onPress={ () => {
-            setModalVisible(false);
-            navigation.navigate('LogoutSplash');
-          }
-          }
-          Visible={ ModalVisible }
-        />
-        <DrawerItem
-          icon={ ({ focused, color, size }) => (
-            <AntDesign color={ color } size={ 25 } name={
-              focused ? 'home' : 'home' } />
-          ) }
-          label="Home"
-          onPress={ () => {
-            navigation.navigate('HomeScreen');
-          } }
-        />
-        <ListItemSeparator />
-        <DrawerItem
-          icon={ ({ color, size }) => (
-            <AntDesign color={ color } size={ size } name={ "" } />
-          ) }
 
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <AntDesign color={ Colors.black } size={ 35 } name={ 'home' } />
+        ) }
+        label="Home"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <AntDesign color={ Colors.black } size={ 35 } name={ 'user' } />
+        ) }
+        label="Profile"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <Entypo color={ Colors.black } size={ 35 } name={ 'new' } />
+        ) }
+        label="News"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <AntDesign color={ Colors.black } size={ 35 } name={ 'hearto' } />
+        ) }
+        label="favorate"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <AntDesign color={ Colors.black } size={ 35 } name={ 'staro' } />
+        ) }
+        label="recommendations"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+      <DrawerItem
+        icon={ ({ focused, color, size }) => (
+          <AntDesign color={ Colors.black } size={ 35 } name={ 'setting' } />
+        ) }
+        label="sittings"
+        onPress={ () => {
+          navigation.navigate('HomeScreen');
+        } }
+      />
+
+
+      <View style={ { marginLeft: 8, marginTop: 230 } }>
+        <DrawerItem
           label="Logout"
           icon={ ({ focused, color, size }) => (
-            <AntDesign color={ color } size={ 23 } name={
+            <AntDesign color={ Colors.black } size={ 30 } name={
               focused ? 'logout' : 'logout' } />
           ) }
-          onPress={ () => {
-            navigation.closeDrawer();
-            setModalVisible(true);
-          } }
+          onPress={ async () => {
+            await logOut();
+            navigation.navigate('LogInScreen');
+          }
+
+          }
         />
-        <ListItemSeparator />
-      </DrawerContentScrollView>
-    </View>
+      </View>
+    </View >
   );
 }

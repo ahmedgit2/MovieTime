@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableHighlight } from 'react-native';
+import { View, Image, Pressable } from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { IconButton } from '../iconButton';
@@ -7,21 +7,19 @@ import { IconButton } from '../iconButton';
 import { Styles } from './styles'
 import { Colors } from '../../assets/colors'
 
-export function HomeHeader(props) {
-  const {
-    onPressUser = () => { console.warn("Pressed") },
-    onPressSearch = () => { console.warn("Pressed") },
-    OnPressMenu = () => { console.warn("Pressed") },
-  } = props;
+export function HomeHeader({ OnPressMenu }) {
+
+  onPressUser = () => { console.warn("Pressed") }
+  onPressSearch = () => { console.warn("Pressed") }
 
   return (
     <View style={ Styles.HeaderContainer } >
 
 
       <View style={ Styles.LeftIcons }>
-        <TouchableHighlight underlayColor={ Colors.main }>
+        <Pressable onPress={ OnPressMenu } underlayColor={ Colors.main }>
           <Ionicons name={ 'menu-sharp' } size={ 35 } color={ Colors.black } />
-        </TouchableHighlight>
+        </Pressable>
       </View>
 
       <View style={ Styles.ImageContainer }>

@@ -9,7 +9,7 @@ const auth = getAuth();
 const database = getDatabase();
 
 
-export default getAuth();
 export const db = getDatabase();
+export default getAuth();
 
 

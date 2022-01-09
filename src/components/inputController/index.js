@@ -14,29 +14,32 @@ export function InputController({
     otherStyle,
     multiline,
     numberOfLines,
-    keyboardType
+    keyboardType,
+    secureTextEntry
 }) {
 
     return (
         <Controller
-            name={name}
-            defaultValue={defaultValue}
-            control={control}
-            rules={rules}
-            render={({ field: { onChange, onBlur, value } }) => (
+            name={ name }
+            defaultValue={ defaultValue }
+            control={ control }
+            rules={ rules }
+            secureTextEntry
+            render={ ({ field: { onChange, onBlur, value } }) => (
                 <View>
                     <Input
-                        placeholder={placeholder}
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
-                        errors={errors}
-                        otherStyle={otherStyle}
-                        keyboardType={keyboardType}
+                        placeholder={ placeholder }
+                        onBlur={ onBlur }
+                        onChangeText={ onChange }
+                        value={ value }
+                        errors={ errors }
+                        secureTextEntry={ secureTextEntry }
+                        otherStyle={ otherStyle }
+                        keyboardType={ keyboardType }
                     />
                 </View>
 
-            )}
+            ) }
         />
 
 

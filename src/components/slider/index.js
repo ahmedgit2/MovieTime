@@ -4,12 +4,10 @@ import { View, FlatList, Animated, Dimensions } from 'react-native';
 import { SliderItem } from '../sliderItem';
 import { SliderIndicator } from '../sliderIndicator';
 import { styles } from './styles';
-import { Colors } from '../../assets/colors';
 
 const { height, width } = Dimensions.get('window');
-const delay = 5;
 
-export function Slider({ items = TestData }) {
+export const Slider = ({ items = TestData }) => {
 
   const [ currentIndex, setcurrentIndex ] = useState(0);
   const [ autoPlay, setAutoPlay ] = useState(true);

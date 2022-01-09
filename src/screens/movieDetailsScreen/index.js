@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, SafeAreaView, ScrollView, Text } from 'react-native';
 
-import { DetailsHeader } from '../../components/detailsHeader';
-import { DetailsCard } from '../../components/detailsCard';
+import { MovieDetailsHeader } from '../../components/movieDetailsHeader';
+import { MovieDetailsCard } from '../../components/movieDetailsCard';
 import { ClickableText } from '../../components/clickableTextShowAll';
 import { CastList } from '../../components/castList';
 import { PhotosList } from '../../components/photosList';
@@ -13,11 +13,11 @@ export const MovieDetailsScreen = ({ item = 'April' }) => {
         <SafeAreaView style={ Styles.ScreenContainer }>
 
             <ScrollView >
-                <DetailsHeader />
+                <MovieDetailsHeader />
 
                 <View style={ 3 > 3 ? { paddingBottom: 27 } : { paddingBottom: 10 } }>
 
-                    <DetailsCard />
+                    <MovieDetailsCard />
                 </View>
 
 

@@ -14,31 +14,33 @@ export function Input(props) {
     onBlur,
     onChangeText,
     value,
+    secureTextEntry,
     ...rest
   } = props;
 
   return (
     <View>
       <TextInput
-        placeholder={placeholder}
-        keyboardType={keyboardType}
-        onBlur={onBlur}
-        onChangeText={onChangeText}
-        value={value}
-        style={[
+        secureTextEntry={ secureTextEntry }
+        placeholder={ placeholder }
+        keyboardType={ keyboardType }
+        onBlur={ onBlur }
+        onChangeText={ onChangeText }
+        value={ value }
+        style={ [
           InputTextStyle.inputText,
           errors && { marginBottom: 5 },
           { ...otherStyle },
-          errors && { borderWidth: 1, borderColor: Colors.main }]}
-        {...rest}
+          errors && { borderWidth: 1, borderColor: Colors.main } ] }
+        { ...rest }
       />
 
 
-      {errors ?
-        <Text style={InputTextStyle.errorMessage}>
-          {errors}
+      { errors ?
+        <Text style={ InputTextStyle.errorMessage }>
+          { errors }
         </Text>
-        : null}
+        : null }
     </View>
   );
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { HomeDrower } from './HomeDrower'
+import { HomeDrawer } from './homeDrawer'
+import { AuthStack } from './authStack'
 
-export function AppContainer() {
+export function AppContainer({ isAuthenticated = false }) {
 
   return (
-
     <NavigationContainer>
-      <HomeDrower />
+      { isAuthenticated ? < HomeDrawer /> : <AuthStack /> }
     </NavigationContainer>
 
-  );
+  )
+
 }

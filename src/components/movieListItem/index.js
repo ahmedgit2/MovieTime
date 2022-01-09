@@ -32,7 +32,7 @@ export function MovieCard({ item, onPress, cardHeight = height * .22, cardWidth 
             }
 
             { item.year &&
-                <Text style={ Styles.rateText }>{ item.rate }</Text>
+                <Text style={ Styles.rateText }>{ item.year }</Text>
             }
         </View>
     );

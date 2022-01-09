@@ -1,12 +1,10 @@
 import React from 'react';
 import { Image, Pressable, Dimensions } from 'react-native';
 
-import { styles } from './styles';
-import { Colors } from '../../assets/colors';
 
 const { height, width } = Dimensions.get('window');
 
-export function SliderItem({ item, onPress }) {
+export const SliderItem = ({ item, onPress }) => {
     return (
         <Pressable onPress={ onPress }  >
             <Image

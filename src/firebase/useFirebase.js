@@ -43,14 +43,11 @@ export const addName = (user, name) => {
     return updateProfile(user, { displayName: name })
         .then(
             console.log(name + " Logged Out")
-
         )
         .catch(error => console.log(error));
-
 }
 
 export const getCurrentUserProfile = () => {
-
     const user = auth.currentUser;
     if (user !== null) {
         const data = {

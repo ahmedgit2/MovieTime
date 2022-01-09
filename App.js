@@ -1,29 +1,24 @@
-import React from 'react';
-
-import thunk from "redux-thunk";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reducers from "./src/redux/reducers";
+import React, { useState } from 'react';
 
 import { SplashScreen } from './src/screens/splashScreen';
-import { SignUpScreen } from './src/screens/signUpScreen';
-import { LoginScreen } from './src/screens/logInScreen';
-import { HomeScreen } from './src/screens/homeScreen';
-import { MovieDetailsScreen } from './src/screens/movieDetailsScreen';
-import { CastDetailsScreen } from './src/screens/castDetailsScreen';
-import { Slider } from './src/components/slider';
+import { AppContainer } from './src/navigator/appContainer';
+import { useAuth } from './src/firebase/useFirebase';
 
 const App = () => {
-  const store = createStore(reducers, applyMiddleware(thunk));
+  const [ splash, setSplash ] = useState(true);
+  const Auth = useAuth();
+
+  setTimeout(() => {
+    setSplash(false);
+  }, 4500);
 
   return (
-    <Provider store={ store }>
 
-      <HomeScreen />
-
-    </Provider>
+    //splash ?
+    // <SplashScreen />
+    //:
+    <AppContainer isAuthenticated={ true } />
   );
 };
-
 
 export default App;

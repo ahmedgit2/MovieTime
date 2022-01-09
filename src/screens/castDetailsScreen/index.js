@@ -1,77 +1,47 @@
-import React, { useEffect } from 'react';
-import { View, SafeAreaView, ScrollView, Text } from 'react-native';
+import React from 'react';
+import { View, SafeAreaView } from 'react-native';
 
-import { DetailsHeader } from '../../components/movieDetailsHeader';
-import { DetailsCard } from '../../components/movieDetailsCard';
+import { NewMovieList } from '../../components/newMoviesList';
+import { CastDetailsCard } from '../../components/castDetailsCard';
 import { ClickableText } from '../../components/clickableTextShowAll';
-import { CastList } from '../../components/castList';
 import { PhotosList } from '../../components/photosList';
+import { VerticalList } from '../../components/verticalList';
+
 import { Styles } from './styles';
 
-import { signUp, useAuth, getCurrentUserProfile } from '../../firebase/useFirebase';
 
-export const CastDetailsScreen = ({ item = 'April' }) => {
-    const user = useAuth();
-
+export const CastDetailsScreen = ({ item = test }) => {
     return (
         <SafeAreaView style={ Styles.ScreenContainer }>
-
-            <ScrollView >
-                {/*    <DetailsHeader />
-
-                <View style={ 3 > 3 ? { paddingBottom: 27 } : { paddingBottom: 10 } }>
-
-                    <DetailsCard />
-                </View>
+            <CastDetailsCard />
 
 
-                <View style={ Styles.HorizontalText }>
-                    <Text style={ Styles.MainText }> Release Date : </Text>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
+            <ClickableText text='PHOTOS' />
+            <View style={ Styles.CastContainer }>
+                <PhotosList />
+            </View>
 
-                <View style={ Styles.HorizontalText }>
-                    <Text style={ Styles.MainText }> Director : </Text>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
+            <ClickableText text='MOST SUCCESSFUL MOVIES' />
+            <View style={ Styles.MostSuccessfulContainer }>
+                <NewMovieList />
+            </View>
 
-                <View style={ Styles.HorizontalText }>
-                    <Text style={ Styles.MainText }> Producer : </Text>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
+            <ClickableText text='ALL MOVIES' clickableText='' />
 
-                <View style={ Styles.HorizontalText }>
-                    <Text style={ Styles.MainText }> Composer : </Text>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
-
-                <View style={ Styles.HorizontalText }>
-                    <Text style={ Styles.MainText }> Box Office : </Text>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
+            <View style={ Styles.VerticalList }>
+                <VerticalList />
+            </View>
 
 
-                <ClickableText text={ 'STORYLINE' } clickableText='' />
-                <View style={ { paddingLeft: 15 } }>
-                    <Text style={ Styles.SecondaryTextDark }>{ item } </Text>
-                </View>
+        </SafeAreaView>
 
-
-                <ClickableText text='CAST' clickableText='' />
-                <View style={ Styles.CastContainer }>
-                    <CastList />
-                </View>
-
-                <ClickableText text='PHOTOS' clickableText='' />
-                <View style={ Styles.CastContainer }>
-                    <PhotosList />
-                </View>
-            */}
-                <View style={ { marginVertical: 10 } } />
-
-
-            </ScrollView >
-        </SafeAreaView >
     );
 
+}
+const test = {
+    name: 'sssssssss',
+    img: 'https://palsawa.com/uploads/images/2021/12/yDzfD.jpg',
+    rate: '8.5',
+    time: '2h 30m',
+    text: 'ddddddddddddd',
 }
