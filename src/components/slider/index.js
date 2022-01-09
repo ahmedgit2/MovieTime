@@ -16,7 +16,7 @@ export const Slider = ({ }) => {
   const [ intervalId, setIntervalId ] = useState(null);
 
   const scrollX = useRef(new Animated.Value(0)).current;
-  const slideRef = useRef(null);
+  const slideRef = useRef(0);
 
   const onMomentumScrollBegin = useRef(() => {
     setAutoPlay(false);
@@ -28,37 +28,37 @@ export const Slider = ({ }) => {
   }).current;
 
 
-  useEffect(() => {
-    if (autoPlay) {
-      let toIndex = currentIndex;
-      if (intervalId === null) {
-        const id = window.setInterval(() => {
-          if (toIndex < Object.keys(movies) - 1) {
-            toIndex++
-          } else {
-            toIndex = 0
-          }
-          slideRef.current.scrollToIndex({ animated: true, index: toIndex })
-        }, 4000);
-        setIntervalId(id);
-      }
-    } else {
-      clearInterval(intervalId);
-      setTimeout(() => {
-        setAutoPlay(true);
-        console.log("autoPlay :" + autoPlay);
-      }, 2000);
-    }
-    //  console.log("autoPlay :" + autoPlay);
-    //console.log("intervalId :" + intervalId);
-  }, [ autoPlay ])
-  console.log(movies);
+  // useEffect(() => {
+  //   if (autoPlay) {
+  //     let toIndex = currentIndex;
+  //     if (intervalId === 0) {
+  //       const id = window.setInterval(() => {
+  //         if (toIndex < Object.keys(movies) - 1) {
+  //           toIndex++
+  //         } else {
+  //           toIndex = 0
+  //         }
+  //         slideRef.current.scrollToIndex({ animated: true, index: toIndex })
+  //       }, 4000);
+  //       setIntervalId(id);
+  //     }
+  //   } else {
+  //     clearInterval(intervalId);
+  //     setTimeout(() => {
+  //       setAutoPlay(true);
+  //       console.log("autoPlay :" + autoPlay);
+  //     }, 2000);
+  //   }
+  //   //  console.log("autoPlay :" + autoPlay);
+  //   //console.log("intervalId :" + intervalId);
+  // }, [ autoPlay ])
 
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
       .then(response => {
         setMovies(response.data.results)
+        //console.log(movies);
       });
   }, [])
 
