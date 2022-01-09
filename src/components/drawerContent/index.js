@@ -11,80 +11,80 @@ export function DrawerContent({ name = 'test', navigation, ...props }) {
   const data = getCurrentUserProfile();
   return (
 
-    <View style={ { flex: 1 } } >
-      <View style={ { backgroundColor: Colors.white, } }>
+    <View style={{ flex: 1 }} >
+      <View style={{ backgroundColor: Colors.white, }}>
 
-        <Text style={ { fontFamily: 'roboto_medium', marginLeft: 15, marginVertical: 20, fontSize: 18, color: Colors.black } }>
+        <Text style={{ fontFamily: 'roboto_medium', marginLeft: 15, marginVertical: 20, fontSize: 18, color: Colors.black }}>
           { //data.data.displayName 
-            "name here" }
+            "name here"}
         </Text>
       </View>
 
 
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <AntDesign color={ Colors.black } size={ 35 } name={ 'home' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <AntDesign color={Colors.black} size={35} name={'home'} />
+        )}
         label="Home"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <AntDesign color={ Colors.black } size={ 35 } name={ 'user' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <AntDesign color={Colors.black} size={35} name={'user'} />
+        )}
         label="Profile"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <Entypo color={ Colors.black } size={ 35 } name={ 'new' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <Entypo color={Colors.black} size={35} name={'new'} />
+        )}
         label="News"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <AntDesign color={ Colors.black } size={ 35 } name={ 'hearto' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <AntDesign color={Colors.black} size={35} name={'hearto'} />
+        )}
         label="favorate"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <AntDesign color={ Colors.black } size={ 35 } name={ 'staro' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <AntDesign color={Colors.black} size={35} name={'staro'} />
+        )}
         label="recommendations"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
       <DrawerItem
-        icon={ ({ focused, color, size }) => (
-          <AntDesign color={ Colors.black } size={ 35 } name={ 'setting' } />
-        ) }
+        icon={({ focused, color, size }) => (
+          <AntDesign color={Colors.black} size={35} name={'setting'} />
+        )}
         label="sittings"
-        onPress={ () => {
+        onPress={() => {
           navigation.navigate('HomeScreen');
-        } }
+        }}
       />
 
 
-      <View style={ { marginLeft: 8, marginTop: 230 } }>
+      <View style={{ marginLeft: 8, marginTop: 230 }}>
         <DrawerItem
           label="Logout"
-          icon={ ({ focused, color, size }) => (
-            <AntDesign color={ Colors.black } size={ 30 } name={
-              focused ? 'logout' : 'logout' } />
-          ) }
-          onPress={ async () => {
+          icon={({ focused, color, size }) => (
+            <AntDesign color={Colors.black} size={30} name={
+              focused ? 'logout' : 'logout'} />
+          )}
+          onPress={async () => {
             await logOut();
             navigation.navigate('LogInScreen');
           }

@@ -1,27 +1,40 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, FlatList, Animated, Dimensions } from 'react-native';
-
 import { MovieCard } from '../movieListItem';
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
+import { apiKey } from '../../api/apiKey';
 
 const { height, width } = Dimensions.get('window');
 
-export function NewMovieList({ items = TestData }) {
+export const NewMovieList = ({ items = TestData }) => {
+  const [movies, setMovies] = useState({});
+  //console.log(movies);
+  useEffect(() => {
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
+      .then(response => {
+        setMovies(response.data.results)
+      });
+  }, [])
+
+  const navigation = useNavigation()
+
   return (
-    <View style={ { flex: 1, flexDirection: 'row' } }>
+    <View style={{ flex: 1, flexDirection: 'row' }}>
       <FlatList
-        data={ items }
-        keyExtractor={ (x) => x.id.toString() }
-        renderItem={ ({ item }) => (
-          <MovieCard item={ item }
-            cardHeight={ height * .18 }
-            cardWidth={ width * 0.24 }
-            onPress={ () => {
-              // console.log(item.id)/* navigation.navigate('EmployeeDetails', item)*/
+        data={movies}
+        keyExtractor={(x) => x.id.toString()}
+        renderItem={({ item }) => (
+          <MovieCard item={item}
+            cardHeight={height * .18}
+            cardWidth={width * 0.24}
+            onPress={() => {
+              navigation.navigate('MovieDetailsScreen', item.id)
             }
             } />
-        ) }
+        )}
         horizontal
-        showsHorizontalScrollIndicator={ false }
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   )

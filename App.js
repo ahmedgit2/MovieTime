@@ -5,7 +5,7 @@ import { AppContainer } from './src/navigator/appContainer';
 import { useAuth } from './src/firebase/useFirebase';
 
 const App = () => {
-  const [ splash, setSplash ] = useState(true);
+  const [splash, setSplash] = useState(true);
   const Auth = useAuth();
 
   setTimeout(() => {
@@ -14,10 +14,10 @@ const App = () => {
 
   return (
 
-    //splash ?
-    // <SplashScreen />
-    //:
-    <AppContainer isAuthenticated={ true } />
+    splash ?
+      <SplashScreen />
+      :
+      <AppContainer isAuthenticated={true} />
   );
 };
 

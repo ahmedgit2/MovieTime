@@ -28,7 +28,7 @@ export const Styles = StyleSheet.create({
         alignSelf: 'center'
     },
     MostPopularContainer: {
-        height: height * 0.28,
+        height: height * 0.29,
         width: width - 30,
         borderRadius: 10,
         alignSelf: 'center',

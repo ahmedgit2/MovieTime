@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, FlatList } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native'
 import { MovieCard } from '../movieListItem';
-
+import axios from 'axios';
+import { apiKey } from '../../api/apiKey';
 
 export function MostPopularMoviesList({ items = TestData }) {
+  const [movies, setMovies] = useState({});
+  //console.log(movies);
+  useEffect(() => {
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
+      .then(response => {
+        setMovies(response.data.results)
+      });
+  }, [])
+
+  const navigation = useNavigation()
+
   return (
-    <View style={ { flex: 1, flexDirection: 'row' } }>
+    <View style={{ flex: 1, flexDirection: 'row' }}>
       <FlatList
-        data={ items }
-        keyExtractor={ (x) => x.id.toString() }
-        renderItem={ ({ item }) => (
-          <MovieCard item={ item }
-            onPress={ () => {
-              navigation.navigate('Movie', item)
+        data={movies}
+        keyExtractor={(key) => key.id.toString()}
+        renderItem={({ item }) => (
+          <MovieCard item={item}
+            onPress={() => {
+              navigation.navigate('MovieDetailsScreen', item.id)
             }
             } />
-        ) }
+        )}
         horizontal
-        showsHorizontalScrollIndicator={ false }
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   )

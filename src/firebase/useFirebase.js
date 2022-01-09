@@ -65,7 +65,7 @@ export const getCurrentUserProfile = () => {
 
 //custom hook
 export const useAuth = () => {
-    const [ currentUser, seCurrentUser ] = useState()
+    const [currentUser, seCurrentUser] = useState()
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {

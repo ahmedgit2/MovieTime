@@ -4,17 +4,18 @@ import { View, Image, Pressable, SafeAreaView } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native'
 
 import { Styles } from './styles';
 import { Colors } from '../../assets/colors';
 
 export const MovieDetailsHeader = (props) => {
-
-  const [ isFavorite, setIsFavorite ] = useState(false)
+  const navigation = useNavigation()
+  const [isFavorite, setIsFavorite] = useState(false)
 
   const {
-    image = img,
-    OnPressBack = () => { console.warn("Pressed") },
+    img,
+    OnPressBack = () => { navigation.goBack() },
     onPressSetting = () => { console.warn("Pressed") },
   } = props;
 
@@ -24,41 +25,43 @@ export const MovieDetailsHeader = (props) => {
   }
 
   return (
-    <SafeAreaView style={ { flex: 1, } }>
+    <SafeAreaView style={{ flex: 1, }}>
 
-      <View style={ Styles.containerStyle } >
-        <View style={ Styles.sliderContainerStyle } >
+      <View style={Styles.containerStyle} >
+        <View style={Styles.sliderContainerStyle} >
 
           <Image
-            source={ { uri: image } }
-            style={ Styles.Image }
+            source={{
+              uri: img
+            }}
+            style={Styles.Image}
           />
         </View>
       </View>
 
-      <View style={ Styles.HeaderContainer }>
+      <View style={Styles.HeaderContainer}>
 
-        <View style={ Styles.LeftIcons }>
-          <Pressable onPress={ OnPressBack }>
+        <View style={Styles.LeftIcons}>
+          <Pressable onPress={OnPressBack}>
             <MaterialIcons
-              name={ 'arrow-back-ios' }
-              size={ 25 }
-              color={ Colors.white }
-              style={ { padding: 5 } }
+              name={'arrow-back-ios'}
+              size={25}
+              color={Colors.white}
+              style={{ padding: 5 }}
             />
           </Pressable>
         </View>
 
 
-        <View style={ Styles.RightIcons }>
+        <View style={Styles.RightIcons}>
 
           <Pressable
-            onPress={ onPressFavorite }>
+            onPress={onPressFavorite}>
             <AntDesign
-              name={ isFavorite ? 'heart' : 'hearto' }
-              size={ 23 }
-              color={ isFavorite ? Colors.main : Colors.white }
-              style={ { marginRight: 7, padding: 5 } }
+              name={isFavorite ? 'heart' : 'hearto'}
+              size={23}
+              color={isFavorite ? Colors.main : Colors.white}
+              style={{ marginRight: 7, padding: 5 }}
             />
 
           </Pressable>
@@ -66,8 +69,8 @@ export const MovieDetailsHeader = (props) => {
 
           <Pressable >
             <Entypo
-              name={ 'dots-three-vertical' }
-              size={ 23 } color={ Colors.white }
+              name={'dots-three-vertical'}
+              size={23} color={Colors.white}
             />
           </Pressable>
 
