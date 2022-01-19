@@ -15,34 +15,34 @@ export function HomeStack() {
 
   return (
     <Stack.Navigator
-      screenOptions={ { headerTintColor: Colors.white } }
+      screenOptions={{ headerTintColor: Colors.white }}
     >
 
       <Stack.Screen
         name="HomeScreen"
-        component={ HomeScreen }
-        options={ {
+        component={HomeScreen}
+        options={{
           title: '',
           headerShown: false
-        } }
+        }}
       />
 
       <Stack.Screen
         name="CastDetailsScreen"
-        component={ CastDetailsScreen }
-        options={ {
+        component={CastDetailsScreen}
+        options={{
           title: '',
           headerStyle: { backgroundColor: Colors.main }
-        } }
+        }}
       />
 
       <Stack.Screen
         name="MovieDetailsScreen"
-        component={ MovieDetailsScreen }
-        options={ {
+        component={MovieDetailsScreen}
+        options={{
           title: '',
           headerShown: false
-        } }
+        }}
       />
 
     </Stack.Navigator >

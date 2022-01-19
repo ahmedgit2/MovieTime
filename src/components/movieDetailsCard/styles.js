@@ -22,13 +22,13 @@ export const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors.white,
-        height: (height * .18) + 1,
+        height: (height * .20) + 1,
         width: (width * 0.25) + 0.5,
         borderRadius: 10,
         elevation: 50,
         position: 'absolute',
         left: 15,
-        bottom: 7
+        bottom: 30
     },
     image: {
         flex: 1,
@@ -42,17 +42,19 @@ export const Styles = StyleSheet.create({
     rateContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 5
+        paddingLeft: 5,
+
     },
     typeContainer: {
         flexDirection: 'row',
         paddingRight: 10,
         flexWrap: 'wrap',
-        paddingTop: 7
+        width: width,
+        paddingLeft: 124,
 
     },
     Text: {
-        marginBottom: 3,
+        marginVertical: 5,
         paddingLeft: 10,
         fontSize: 20,
         color: Colors.black,
@@ -60,6 +62,7 @@ export const Styles = StyleSheet.create({
         fontFamily: 'roboto_medium',
     },
     rateText: {
+        marginBottom: 5,
         paddingLeft: 4,
         fontSize: 14,
         color: Colors.black,

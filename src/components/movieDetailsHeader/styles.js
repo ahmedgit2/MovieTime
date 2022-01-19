@@ -37,7 +37,7 @@ export const Styles = StyleSheet.create({
         height: height,
         width: width,
         position: 'absolute',
-        top: height * 0.45,
+        top: height * 0.4,
         marginLeft: width / 2,
         backgroundColor: '#9DD6EB',
         resizeMode: 'contain'

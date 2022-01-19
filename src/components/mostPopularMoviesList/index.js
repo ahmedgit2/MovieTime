@@ -5,7 +5,8 @@ import { MovieCard } from '../movieListItem';
 import axios from 'axios';
 import { apiKey } from '../../api/apiKey';
 
-export function MostPopularMoviesList({ items = TestData }) {
+export function MostPopularMoviesList({ items }) {
+  const navigation = useNavigation();
   const [movies, setMovies] = useState({});
   //console.log(movies);
   useEffect(() => {
@@ -15,8 +16,6 @@ export function MostPopularMoviesList({ items = TestData }) {
       });
   }, [])
 
-  const navigation = useNavigation()
-
   return (
     <View style={{ flex: 1, flexDirection: 'row' }}>
       <FlatList
@@ -24,9 +23,8 @@ export function MostPopularMoviesList({ items = TestData }) {
         keyExtractor={(key) => key.id.toString()}
         renderItem={({ item }) => (
           <MovieCard item={item}
-            onPress={() => {
-              navigation.navigate('MovieDetailsScreen', item.id)
-            }
+            onPress={() =>
+              navigation.navigate('MovieDetailsScreen', { id: item.id })
             } />
         )}
         horizontal

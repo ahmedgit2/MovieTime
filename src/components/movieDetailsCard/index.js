@@ -8,57 +8,57 @@ import { Colors } from '../../assets/colors'
 
 const { height, width } = Dimensions.get('window');
 
-export const MovieDetailsCard = ({ item = test }) => {
-
+export const MovieDetailsCard = ({ item }) => {
+    console.log(item)
     return (
-        <View style={ Styles.ScreenContainer }>
+        <View style={Styles.ScreenContainer}>
 
-            <View style={ Styles.imageContainer }>
+            <View style={Styles.imageContainer}>
                 <Image
-                    source={ { uri: item.img } }
-                    style={ Styles.image } />
+                    source={{ uri: 'https://image.tmdb.org/t/p/w500/' + item.poster_path }}
+                    style={Styles.image} />
             </View>
 
-            <View style={ Styles.nameContainer }>
+            <View style={Styles.nameContainer}>
 
-                <Text style={ Styles.Text } >{ item.name }</Text>
+                <Text style={Styles.Text} >{item.title}</Text>
 
-                <View style={ Styles.rateContainer }>
+                <View style={Styles.rateContainer}>
                     <Fontisto name='star'
-                        size={ 15 }
-                        color={ Colors.gold }
+                        size={15}
+                        color={Colors.gold}
                     />
 
-                    <Text style={ Styles.rateText }>{ item.rate }</Text>
+                    <Text style={Styles.rateText}>{item.vote_average}</Text>
 
                     <Fontisto name='clock'
-                        size={ 15 }
-                        color={ Colors.middle }
-                        style={ { paddingLeft: 20 } }
+                        size={15}
+                        color={Colors.middle}
+                        style={{ paddingLeft: 20 }}
                     />
 
-                    <Text style={ Styles.rateText }>{ item.time }</Text>
+                    <Text style={Styles.rateText}>{item.release_date}</Text>
 
                 </View>
 
-                <View style={ Styles.typeContainer }>
-                    { item.type.map((x) => {
-                        return (
-                            <View style={ {
-                                backgroundColor: "#ececec",
-                                margin: 5,
-                                borderRadius: 4,
-                                width: 60,
-                                height: 17,
-                            } } key={ x.key }>
-                                <Text style={ Styles.smallText }>{ x.tb.toString() }</Text>
-                            </View>
 
-                        )
-                    }) }
-                </View>
             </View>
+            <View style={Styles.typeContainer}>
+                {item?.genres?.map((x) => {
+                    return (
+                        <View style={{
+                            backgroundColor: "#ececec",
+                            margin: 5,
+                            borderRadius: 4,
+                            width: 60,
+                            height: 17,
+                        }} key={x.id}>
+                            <Text style={Styles.smallText}>{x.name.toString()}</Text>
+                        </View>
 
+                    )
+                })}
+            </View>
         </View>
 
     );
